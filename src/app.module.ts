@@ -9,8 +9,8 @@ import { PostgresTaskModule } from './postgres-task/postgres-task.module';
 @Module({
   imports: [
     TaskModule,
-    PostgresTaskModule,
     ConfigModule.forRoot({ isGlobal: true }),
+    PostgresTaskModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.POSTGRES_HOST,
