@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { TaskModule } from './task/task.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-
+import { DataSource } from 'typeorm';
 import { Task } from './postgres-task/tasks.entity';
 import { PostgresTaskModule } from './postgres-task/postgres-task.module';
 
@@ -25,4 +25,6 @@ import { PostgresTaskModule } from './postgres-task/postgres-task.module';
   controllers: [],
   providers: [],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private dataSource: DataSource) {}
+}
